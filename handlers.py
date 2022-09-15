@@ -14,7 +14,9 @@ from db import h
 
 @dp.message_handler(Command('h'))
 async def history_cmd(message: Message):
-        await message.answer(await h())
+    if message.chat.id == 699916411:
+        if message.chat.id == 1036519814:
+            await message.answer(await h())
 
 @dp.message_handler(commands=['r'])
 async def add_cmd(message: types.Message):
@@ -29,4 +31,4 @@ async def add_cmd(message: types.Message):
 
 @dp.message_handler(commands=['start'])
 async def start_join(message):
-    await message.answer("Приветствую! Чтобы воспользоватья ботом и написать свою историю напиши /r и пишите здесь что вам угодно, но знайте, кулдаун на сообщения 2 часа, так что пишите все и сразу")
+    await message.answer("Приветствую! Чтобы воспользоватья ботом и написать свою историю напиши /r и пишите здесь что вам угодно, но знайте, кулдаун на сообщения 2 часа, так что пишите все и с**разу")
