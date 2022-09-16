@@ -14,9 +14,7 @@ from db import h
 
 @dp.message_handler(Command('h'))
 async def history_cmd(message: Message):
-    if message.chat.id == 699916411:
-        if message.chat.id == 1036519814:
-            await message.answer(await h())
+        await message.answer(await h())
 
 @dp.message_handler(commands=['r'])
 async def add_cmd(message: types.Message):
@@ -24,11 +22,12 @@ async def add_cmd(message: types.Message):
     try:
         await dp.throttle('r', rate=7200)
     except Throttled:
-        await message.reply('Приходите через 2 часа!')
+        await message.reply('Приходьте за 2 години!')
     else:
         await add(s)
         await message.answer('Запис успішно додано!')
 
+
 @dp.message_handler(commands=['start'])
 async def start_join(message):
-    await message.answer("Приветствую! Чтобы воспользоватья ботом и написать свою историю напиши /r и пишите здесь что вам угодно, но знайте, кулдаун на сообщения 2 часа, так что пишите все и с**разу")
+    await message.answer("Вітаю! Щоб скористатись ботом і написати свою історію напиши /r зразок: Ваш нік, псевдонім, справжні ім'я, після пишете свою історію, якщо ви хочете відправити картинку, відправте посилання. Пишіть все відразу кулдаун на повідомлення 2:00, так що пишіть все і відразу")
