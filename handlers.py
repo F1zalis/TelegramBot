@@ -10,13 +10,13 @@ from bot import BotDB
 from db import add
 from db import h
 
-@dp.message_handler(commands = "r")
+@dp.message_handler(Command('h'))
+async def history_cmd(message: Message):
+        await message.answer(await h())
+
+@dp.message_handler(commands=['r'])
 async def add_cmd(message: types.Message):
-    if(not BotDB.user_exists(message.from_user.id)):
-        BotDB.add_user(message.from_user.id)
-        await bot.send_message(message.from_user.id, "Укажите ваш ник") 
-    else:
-        await bot.send_message(message.from_user.id, "Вы уже зарегистрированы!")
+    s = ' '.join(message.text.split(' ')[1:])
     try:
         await dp.throttle('r', rate=7200)
     except Throttled:
@@ -31,5 +31,5 @@ async def history_cmd(message: Message):
 
 @dp.message_handler(commands=['start'])
 async def start_join(message):
-        await message.answer("Вітаю! Щоб скористатись ботом і написати свою історію напиши /r зразок: Ваш нік, псевдонім, справжні ім'я, після пишете свою історію, якщо ви хочете відправити картинку, відправте посилання. Пишіть все відразу кулдаун на повідомлення 2:00, так що пишіть все і відразу")
+        await message.answer("Вітаю! Щоб скористатись ботом і написати свою історію напиши /r зразок: Ваш нік, псевдонім, справжні ім'я, після пишете свою історію, якщо ви хочете відправити картинку, відправте посилання. Пишіть все відразу кулдаун на повідомлення 2 години, так що пишіть все і відразу")
 
