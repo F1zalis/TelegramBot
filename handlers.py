@@ -1,18 +1,15 @@
-from aiogram import types
-from dispatcher import dp
-from aiogram.dispatcher.filters import Command
 from aiogram.types import Message
-import config
+from aiogram.types import message
+from aiogram.types import chat
+from aiogram.dispatcher.filters import Command
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.utils.exceptions import Throttled
-import re
-from bot import BotDB
+from aiogram import bot, types
+import aiogram
+from dispatcher import dp
 from db import add
 from db import h
-
-@dp.message_handler(Command('h'))
-async def history_cmd(message: Message):
-        await message.answer(await h())
+import mysql.connector
 
 @dp.message_handler(commands=['r'])
 async def add_cmd(message: types.Message):
@@ -31,5 +28,5 @@ async def history_cmd(message: Message):
 
 @dp.message_handler(commands=['start'])
 async def start_join(message):
-        await message.answer("Вітаю! Щоб скористатись ботом і написати свою історію напиши /r зразок: Ваш нік, псевдонім, справжні ім'я, після пишете свою історію, якщо ви хочете відправити картинку, відправте посилання. Пишіть все відразу кулдаун на повідомлення 2 години, так що пишіть все і відразу")
+        await message.answer("Вітаю!\n===========\nЩоб скористатись ботом і написати свою історію - напиши /r\n===========\nзразок: /r Ваш нік ( псевдонім/ справжнє ім'я).\n===========\nПісля чого можете писати свою історію. Якщо ви хочете відправити картинку - відправте посилання. Пишіть все відразу. Кулдаун на повідомлення - 2 години.\n===========\n\nЗразок: «Ім‘я, текст»")
 

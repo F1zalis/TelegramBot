@@ -1,2 +1,3 @@
-BOT_TOKEN = '5528007225:AAFaSAgzJItthucZHmqt_cUzeDpIkgfbFKo'
-chat_id   = 699916411
+BOT_TOKEN = '5729613134:AAErno7W1tvIBHadc9OkYq4pJi4Sh0MmgvQ'
+chat_id = 699916411
+chat_id = 1036519814
